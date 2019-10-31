@@ -12,12 +12,12 @@ app.use(bodyParser.urlencoded({
 }));
 app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
-    res.render('index');
+    res.render('main');
 });
-app.get('/display', function(req, res) {
+app.get('/show', function(req, res) {
   db.collection("weblab").find({}).toArray(function(err, result) {
     if (err) throw err;
-    res.render('display',{result:result});
+    res.render('show',{result:result});
     db.close;
 });});
 app.post('/', function(req,res){ 
